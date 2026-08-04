@@ -1,4 +1,4 @@
-#import clase_seleccion
+# importar clase_seleccion
 from clase_seleccion import SeleccionFutbol
 
 class Jugador:
@@ -26,23 +26,5 @@ class Arquero(Jugador):
         super().__init__(nombre, apellido, posicion)
         self.prob_atajada=prob_atajada
         self.vallas_invictas=0
-        
-
-
-# messi =Delantero("Lionel", "Messi","Delantero",0.8)
-# # Arqueros: Emiliano Martinez
-# Geronimo Ruli
-
-# #Defesores:
-# Christian Romero
-# Lisandro Martinez
-# Nicolas Otamendi
-
-# #Mediocampistas
-# Leandro Paredes
-
-# #Delanteros:
-# Lionel Messi
-# Julian Alvarez
 
 

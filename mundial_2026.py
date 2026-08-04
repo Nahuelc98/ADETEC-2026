@@ -1,26 +1,66 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
 
-lionel_messi = Jugador("Lionel","Messi","Delantero")
-rodri_depaul = Jugador("Rodrigo", "De Paul", "Mediocampista")
+# FUNCIÓN ESCRIBIR EN ARCHIVO:
+def escribir_archivo(nombre_archivo, texto):
+    archivo = open(nombre_archivo, "a", encoding="utf-8")
+    archivo.write(texto)
+    archivo.close()
 
-sel_argentina = SeleccionFutbol("Argentina", "Lionel Scaloni", 3,"H")
+# FUNCIÓN LEER ARCHIVO:
+def leer_archivo(nombre_archivo):
+    archivo = open(nombre_archivo, "r", encoding="utf-8")
+    contenido = archivo.readlines()
+    archivo.close()
+    return contenido
 
-sel_argentina.convocar(lionel_messi)
-sel_argentina.convocar(rodri_depaul)
+sel_argentina = SeleccionFutbol("Argentina", "Lionel Scaloni", 3, "H")
 
-n=0
-while n < 4:
-    print("Convoque un jugador: ")
-    nombre=input("Nombre del jugador: ")
-    apellido=input("Apellido del jugador: ")
-    pos = input("Posicion: ")
+print("SELECCIÓN ARGENTINA")
+print("-" * 25 + "\n")
 
-    jugador_nuevo=Jugador(nombre,apellido,pos)
-    sel_argentina.convocar(jugador_nuevo)
-    n +=1
+while True:
+    print("Seleccioná una opción")
+    print("-" * 25)
+    print("1. Mostrar plantel")
+    print("2. Convocar jugador")
+    print("3. Quitar jugador")
+    print("4. Salir")
 
-sel_argentina.mostrar_plantel()
+    opcion = input("Ingresa una opción: ")
 
-sel_mexico=SeleccionFutbol("Mexico","Juan Perez",0,"H")
-sel_mexico=SeleccionFutbol("España","De la fuente",0,"A")
+    if opcion == "4":
+        print("SELECCIÓN FINALIZADA")
+        break
+
+    elif opcion == "1":
+        lineas = leer_archivo("plantel_argentina.txt")
+        print("\nPLANTEL GUARDADO")
+        for linea in lineas:
+            print(linea.strip())
+
+    elif opcion == "2":
+        cantidad = int(input("¿Cuántos jugadores vas a convocar? "))
+        
+        for i in range(cantidad):
+            print(f"\nJugador {i+1}:")
+            nombre = input("Nombre: ")
+            apellido = input("Apellido: ")
+            posicion = input("Posición: ")
+
+            jugador_nuevo = Jugador(nombre, apellido, posicion)
+            sel_argentina.convocar(jugador_nuevo)
+
+            datos_jugador = f"{jugador_nuevo.nombre},{jugador_nuevo.apellido},{jugador_nuevo.posicion}\n"
+            
+            escribir_archivo("plantel_argentina.txt", datos_jugador)
+            print("Jugador guardado")
+
+    elif opcion == "3":
+        print("Ingresa Nombre y Apellido del jugador a sacar del plantel")
+        print("-" * 25)
+        nombre_eliminado = input("Nombre del jugador: ")
+        apellido_eliminado = input("Apellido del jugador: ")
+
+        if nombre_eliminado == jugador_nuevo.nombre and apellido_eliminado == jugador_nuevo.apellido:
+            
