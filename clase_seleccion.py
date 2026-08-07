@@ -25,16 +25,16 @@ class SeleccionFutbol:
         print ("Arqueros:")
         for jugador in self.convocados:
             if jugador.posicion == "Arquero":
-                print(f"{jugador.nombre} {jugador.apellido}")
+                print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")
         print ("\nDefensores:")
         for jugador in self.convocados:
             if jugador.posicion == "Defensor":
-                print(f"{jugador.nombre} {jugador.apellido}")
+                print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")
         print ("\nMediocampistas:")
         for jugador in self.convocados:
             if jugador.posicion == "Mediocampista":
-                print(f"{jugador.nombre} {jugador.apellido}")
+                print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")
         print ("\nDelanteros:")
         for jugador in self.convocados:
             if jugador.posicion == "Delantero":
-                print(f"{jugador.nombre} {jugador.apellido}")
+                print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")

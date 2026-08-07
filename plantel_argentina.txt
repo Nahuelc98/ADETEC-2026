@@ -1,1 +1,3 @@
-
+Emiliano,Martinez,Arquero,1
+Lionel,Messi,Delantero,10
+Leandro,Paredes,Mediocampista,5
