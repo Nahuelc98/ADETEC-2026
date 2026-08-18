@@ -20,7 +20,7 @@ def leer_archivo(nombre_archivo):
     archivo.close()
     return contenido
 
-# FUNCIÓN PARA CARGAR EL ARCHIVO A LA SELECCIÓN EN MEMORIA:
+# FUNCIÓN PARA CARGAR EL ARCHIVO EN MEMORIA:
 def cargar_plantel(seleccion, nombre_archivo):
     seleccion.convocados.clear()
     lineas = leer_archivo(nombre_archivo)
@@ -75,7 +75,7 @@ while True:
         
             datos_jugador = f"{jugador_nuevo.nombre},{jugador_nuevo.apellido},{jugador_nuevo.posicion},{jugador_nuevo.numero}\n"
             escribir_archivo("plantel_argentina.txt", datos_jugador)
-            print("JUGADOR GUARDADO\n")
+            print(f"El jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} fue seleccionado\n")
 
     elif opcion == "3":
         cantidad_quitar = int(input("¿Cuantos jugadores vas a quitar? "))
@@ -98,8 +98,7 @@ while True:
             # Recargamos la selección en memoria desde el archivo actualizado:
             cargar_plantel(sel_argentina, "plantel_argentina.txt")
 
-            print(f"EL JUGADOR CON LA DORSAL {numero_eliminado} SE QUITÓ DE LA LISTA\n")
-
+            print(f"El jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} se quitó de la lista\n")
 
     else:
         print("\nOPCIÓN INCORRECTA\n")
