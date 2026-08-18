@@ -66,7 +66,7 @@ while True:
 
         if selecionar_seleccion == "A":
             while True:
-                print("SELECCIÓN ARGENTINA")
+                print("\nSELECCIÓN ARGENTINA")
                 print("\nMENÚ")
                 print("-" * 25)
                 print("1. Mostrar plantel")
@@ -130,7 +130,7 @@ while True:
 
         elif selecionar_seleccion == "E":
             while True:
-                print("SELECCIÓN ESPAÑOLA")
+                print("\nSELECCIÓN ESPAÑOLA")
                 print("\nMENÚ")
                 print("-" * 25)
                 print("1. Mostrar plantel")
@@ -194,7 +194,7 @@ while True:
 
         elif selecionar_seleccion == "F":
             while True:
-                print("SELECCIÓN FRANCESA")
+                print("\nSELECCIÓN FRANCESA")
                 print("\nMENÚ")
                 print("-" * 25)
                 print("1. Mostrar plantel")
@@ -258,7 +258,7 @@ while True:
 
         elif selecionar_seleccion == "I":
             while True:
-                print("SELECCIÓN INGLESA")
+                print("\nSELECCIÓN INGLESA")
                 print("\nMENÚ")
                 print("-" * 25)
                 print("1. Mostrar plantel")
