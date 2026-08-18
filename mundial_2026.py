@@ -1,5 +1,6 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
+import random
 
 # FUNCIÓN ESCRIBIR EN ARCHIVO:
 def escribir_archivo(nombre_archivo, texto):
@@ -322,3 +323,7 @@ while True:
 
         else:
             print("\nOPCIÓN INCORRECTA\n")
+
+
+    elif opcion_mundial == "2":
+        print("\nSIMULACIÓN DE PARTIDOS")
