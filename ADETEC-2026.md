@@ -10,4 +10,4 @@
 Este proyecto tiene como objetivo aplicar programación orientada a objetos (clases e instancias) en Python para:
 * Crear y gestionar selecciones de fútbol.
 * Administrar planteles (agregar o quitar jugadores).
-* Simular encuentros y partidos entre equipos.
+* Simular partidos entre los equipos.
