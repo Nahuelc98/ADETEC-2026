@@ -1,6 +1,5 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
-import random
 
 # FUNCIÓN ESCRIBIR EN ARCHIVO:
 def escribir_archivo(nombre_archivo, texto):
@@ -58,14 +57,14 @@ while True:
     print("2. Simular partidos")
     print("3. Salir")
 
-    opcion_mundial = input("Selecciona una opción [1, 2 o 3]: ")
+    opcion = input("Selecciona una opción [1, 2 o 3]: ")
 
     # Cierre del bucle pricipal:
-    if opcion_mundial == "3":
+    if opcion == "3":
         print("MUNDIAL CERRADO")
         break
     # Opción de completar planteles:
-    elif opcion_mundial == "1":
+    elif opcion == "1":
         print("\nSelecciones disponibles: \n- Argentina [A]\n- España [E]\n- Francia [F]\n- Inglaterra [I]")
         selecionar_seleccion = input("Selecciona una selección [A, E, F o I]: ").upper()
 
@@ -82,26 +81,26 @@ while True:
 
         # Bucle de completar planteles: 
         while True:
-            print(f"\nSelección {equipo.nacionalidad}")
-            print("\nMenú")
+            print(f"- \nSelección {equipo.nacionalidad} -")
+            print("\nMenú: Selecciones")
             print("-" * 25)
             print("1. Mostrar plantel")
             print("2. Convocar jugador")
             print("3. Quitar jugador")
             print("4. Volver al menú principal")
 
-            opcion = input("Seleccioná una opción [1, 2, 3 o 4]: ")
+            opcion_seleccion = input("Seleccioná una opción [1, 2, 3 o 4]: ")
             # Cierre del bucle completar planteles:
-            if opcion == "4":
+            if opcion_seleccion == "4":
                 print("SELECCIÓN FINALIZADA")
                 break
             # Mostrar plantel actual:
-            elif opcion == "1":
+            elif opcion_seleccion == "1":
                 print("\nPLANTEL ACTUAL:")
                 print("-" * 25)
                 equipo.mostrar_plantel()
             # Convocar jugadores:
-            elif opcion == "2":
+            elif opcion_seleccion == "2":
                 cantidad = int(input("¿Cuántos jugadores vas a convocar? "))
                 
                 for i in range(cantidad):
@@ -118,7 +117,7 @@ while True:
                     escribir_archivo(f"plantel_{equipo.nacionalidad}.txt".lower(), datos_jugador)
                     print(f"El jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} fue seleccionado\n")
             # Quitar jugadores:
-            elif opcion == "3":
+            elif opcion_seleccion == "3":
                 cantidad_quitar = int(input("¿Cuantos jugadores vas a quitar? "))
 
                 for i in range(cantidad_quitar):
@@ -145,11 +144,19 @@ while True:
                 print("\nOPCIÓN INCORRECTA\n")
 
     # Opción de simular partidos:
-    elif opcion_mundial == "2":
-        print("\nSIMULACIÓN DE PARTIDOS")
+    elif opcion == "2":
+        while True:
+            print("\nSIMULACIÓN DE PARTIDOS")
+            print("\nMenú: Partidos")
+            print("-" * 25)
+            print("1. Simular partidos")
+            print("2. Volver al menú principal")
 
+            opcion_simular = input("Seleccioná una opción [1 o 2]: ")
 
-
+            if opcion_simular == "2":
+                print("Simulación de partidos, cerrada")
+                break
 
 
 

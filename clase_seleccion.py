@@ -38,3 +38,10 @@ class SeleccionFutbol:
         for jugador in self.convocados:
             if jugador.posicion == "Delantero":
                 print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")
+
+
+# # Importamos librería Random para simular partidos:
+# import random
+# # Función de simular partidos:
+# def partido(seleccion_local, seleccion_visitante):
+    
