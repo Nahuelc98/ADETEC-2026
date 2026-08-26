@@ -1,5 +1,7 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
+import random
+import time
 
 # FUNCIÓN ESCRIBIR EN ARCHIVO:
 def escribir_archivo(nombre_archivo, texto):
@@ -163,6 +165,22 @@ while True:
             if opcion_simular == "2":
                 print("Simulación de partidos, cerrada")
                 break
+
+            elif opcion_simular == "1":
+                selecciones_futbol = ["Argentina", "España", "Francia", "Inglaterra"]
+
+                # Mezclamos la lista completa de forma aleatoria:
+                random.shuffle(selecciones_futbol)
+
+                # Le asignamos los 4 equipos directamente en las variables:
+                semifinalista_1, semifinalista_2, semifinalista_3, semifinalista_4 = selecciones_futbol
+
+                print("Sorteo de semifinales...")
+                time.sleep(2)
+                print(f"Semifinal 1: {semifinalista_1} Vs {semifinalista_2}")
+                print(f"Semifinal 2: {semifinalista_3} Vs {semifinalista_4}")
+
+                
 
 
 
