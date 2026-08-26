@@ -65,23 +65,29 @@ while True:
         break
     # Opción de completar planteles:
     elif opcion == "1":
-        print("\nSelecciones disponibles: \n- Argentina [A]\n- España [E]\n- Francia [F]\n- Inglaterra [I]")
-        selecionar_seleccion = input("Selecciona una selección [A, E, F o I]: ").upper()
-
-        if selecionar_seleccion == "A":
-            equipo = sel_argentina
-        elif selecionar_seleccion == "E":
-            equipo = sel_española
-        elif selecionar_seleccion == "F":
-            equipo = sel_francesa
-        elif selecionar_seleccion == "I":
-            equipo = sel_inglesa
-        else:
-            print("\nOPCIÓN INCORRECTA\n")
-
-        # Bucle de completar planteles: 
         while True:
-            print(f"- \nSelección {equipo.nacionalidad} -")
+            print("\nSelecciones disponibles: \n- Argentina [A]\n- España [E]\n- Francia [F]\n- Inglaterra [I]")
+            selecionar_seleccion = input("Selecciona una selección [A, E, F o I]: ").strip().upper()
+
+            if selecionar_seleccion == "A":
+                equipo = sel_argentina
+                break
+            elif selecionar_seleccion == "E":
+                equipo = sel_española
+                break
+            elif selecionar_seleccion == "F":
+                equipo = sel_francesa
+                break
+            elif selecionar_seleccion == "I":
+                equipo = sel_inglesa
+                break
+            else:
+                print("\nOPCIÓN INCORRECTA\n")
+
+
+    # Bucle de completar planteles: 
+        while True:
+            print(f"\n - SELECCIÓN DE {equipo.nacionalidad.upper()} -")
             print("\nMenú: Selecciones")
             print("-" * 25)
             print("1. Mostrar plantel")
@@ -92,7 +98,7 @@ while True:
             opcion_seleccion = input("Seleccioná una opción [1, 2, 3 o 4]: ")
             # Cierre del bucle completar planteles:
             if opcion_seleccion == "4":
-                print("SELECCIÓN FINALIZADA")
+                print(f"GESTIÓN DE {equipo.nacionalidad.upper()} FINALIZADA")
                 break
             # Mostrar plantel actual:
             elif opcion_seleccion == "1":

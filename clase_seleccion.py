@@ -40,8 +40,18 @@ class SeleccionFutbol:
                 print(f"{jugador.nombre} {jugador.apellido}, Dorsal: {jugador.numero}")
 
 
-# # Importamos librería Random para simular partidos:
-# import random
-# # Función de simular partidos:
-# def partido(seleccion_local, seleccion_visitante):
-    
+# Importamos librería Random para simular partidos:
+import random
+# Agregamos las selecciones en una lista:
+selecciones_futbol = ["Argentina", "España", "Francia", "Inglaterra"]
+
+semifinalista_1 = random.choice(selecciones_futbol)
+selecciones_futbol.remove(semifinalista_1)
+semifinalista_2 = random.choice(selecciones_futbol)
+selecciones_futbol.remove(semifinalista_2)
+semifinalista_3 = random.choice(selecciones_futbol)
+selecciones_futbol.remove(semifinalista_3)
+semifinalista_4 = selecciones_futbol[0]
+
+print(f"Semifinal 1: {semifinalista_1} Vs {semifinalista_2}")
+print(f"Semifinal 2: {semifinalista_3} Vs {semifinalista_4}")
