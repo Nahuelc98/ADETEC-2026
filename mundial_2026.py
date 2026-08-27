@@ -1,5 +1,6 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
+from simulador_partidos import simular_partido
 import random
 import time
 
@@ -175,10 +176,10 @@ while True:
                 # Le asignamos los 4 equipos directamente en las variables:
                 semifinalista_1, semifinalista_2, semifinalista_3, semifinalista_4 = selecciones_futbol
 
-                print("Sorteo de semifinales...")
+                print("\nSorteo de semifinales...\n")
                 time.sleep(2)
-                print(f"Semifinal 1: {semifinalista_1} Vs {semifinalista_2}")
-                print(f"Semifinal 2: {semifinalista_3} Vs {semifinalista_4}")
+                print(f"Semifinal 1: {semifinalista_1} vs {semifinalista_2}")
+                print(f"Semifinal 2: {semifinalista_3} vs {semifinalista_4}")
 
                 
 
