@@ -176,14 +176,27 @@ while True:
                 # Le asignamos los 4 equipos directamente en las variables:
                 semifinalista_1, semifinalista_2, semifinalista_3, semifinalista_4 = selecciones_futbol
 
-                print("\nSorteo de semifinales...\n")
-                time.sleep(2)
+                print("\nSORTEO DE SEMIFINALES...\n")
+                time.sleep(3)
                 print(f"Semifinal 1: {semifinalista_1} vs {semifinalista_2}")
                 print(f"Semifinal 2: {semifinalista_3} vs {semifinalista_4}")
+                time.sleep(3)
 
-                
+                print(f"\nCOMIENZA LA PRIMER SEMIFINAL...\n")
+                ganador = simular_partido(semifinalista_1, semifinalista_2)
+                print(f"\nEl primer finalista es {ganador}\n")
+                time.sleep(3)
+                finalista1 = ganador
 
+                print(f"\nCOMIENZA LA SEGUNDA SEMIFINAL...\n")
+                ganador = simular_partido(semifinalista_3, semifinalista_4)
+                print(f"\nEl segundo finalista es {ganador}\n")
+                time.sleep(3)
+                finalista2 = ganador
 
+                print(f"\nCOMIENZA LA FINAL DEL MUNDIAL...\n")
+                ganador = simular_partido(finalista1, finalista2)
+                print(f"\nEl campeón del mundo es {ganador}\n")                
 
     else:
         print("\nOPCIÓN INCORRECTA\n")

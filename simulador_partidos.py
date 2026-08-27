@@ -13,16 +13,18 @@ def simular_partido(equipo1, equipo2):
     goles_e1 = 0
     goles_e2 = 0
 
-    print(f"{equipo1} vs {equipo2}")
+    print(f"{equipo1.upper()} vs {equipo2.upper()}")
     print("-" * 30)
 
     for ronda in range(1, 7):
         if ronda == 1:
             print("\n-- INICIO DEL PARTIDO --")
+            time.sleep(3)
         elif ronda == 4:
             print("\n-- ENTRETIEMPO --")
-            time.sleep(2)
+            time.sleep(4)
             print("\n-- INICIA EL SEGUNDO TIEMPO --")
+            time.sleep(3)
 
         dado_e1 = random.randint(1, 6)
         dado_e2 = random.randint(1, 6)
@@ -30,28 +32,37 @@ def simular_partido(equipo1, equipo2):
         if dado_e1 > dado_e2:
             goles_e1 += 1
             print(f"GOOOL DE {equipo1.upper()}")
+            time.sleep(3)
         elif dado_e2 > dado_e1:
             goles_e2 += 1
             print(f"GOOOL DE {equipo2.upper()}")
+            time.sleep(3)
         else:
             print("JUGADA TRABADA, SIN GOL")
+            time.sleep(3)
 
     print("-" * 30)
     print(f"RESULTADO FINAL: {equipo1.upper()} {goles_e1} - {goles_e2} {equipo2.upper()}")
 
-    while goles_e1 == goles_e2:
-        print("EMPATE EN LOS 90 MINUTOS, VAMOS A LOS PENALES...")
-        time.sleep(2)
+    if goles_e1 > goles_e2:
+        ganador = equipo1 # El ganador del partido es el equipo 1.
+        return ganador
+    elif goles_e2 > goles_e1:
+        ganador = equipo2 # El ganador del partido es el equipo 2.
+        return ganador
+    else:
+        print("EMPATE EN LOS 90 MINUTOS, VAMOS A LOS PENALES...") # Empatarón el partido, hay penales.
+        time.sleep(4)
 
-    ## LÓGICA DE SIMULACIÓN DE PENALES ##
-    # 5 rondas...
-    # Cada equipo tira un dado de 9 caras, Una por cada dirección de pateo al arco:
-    # Izquierda: arriba (IAR), al medio (IM), abajo (IAB). 
-    # Al medio: arriba (MAR), al medio (MM), abajo (MAB).
-    # Derecha: arriba (DAR), al medio (DM), abajo (DAB).
-    # Si el equipo que patea saca una opción diferente al equipo que ataja, es gol para el equipo que patea.
-    # Si el equipo que patea saca una opción igual al equipo que ataja, no suma gol para el equipo que patea.
-    # Si en las 5 vueltas hay empate de goles de penal, se sigue pateando hasta que se saquen una diferencia.
+        ## LÓGICA DE SIMULACIÓN DE PENALES ##
+        # 5 rondas...
+        # Cada equipo tira un dado de 9 caras, Una por cada dirección de pateo al arco:
+        # Izquierda: arriba (IAR), al medio (IM), abajo (IAB). 
+        # Al medio: arriba (MAR), al medio (MM), abajo (MAB).
+        # Derecha: arriba (DAR), al medio (DM), abajo (DAB).
+        # Si el equipo que patea saca una opción diferente al equipo que ataja, es gol para el equipo que patea.
+        # Si el equipo que patea saca una opción igual al equipo que ataja, no suma gol para el equipo que patea.
+        # Si en las 5 vueltas hay empate de goles de penal, se sigue pateando hasta que se saquen una diferencia.
 
         direcciones = ["IAR", "IM", "IAB", "MAR", "MM", "MAB", "DAR", "DM", "DAB"]
         penal_e1 = 0
