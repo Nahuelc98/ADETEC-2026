@@ -64,7 +64,7 @@ while True:
 
     # Cierre del bucle pricipal:
     if opcion == "3":
-        print("MUNDIAL CERRADO")
+        print("\nMUNDIAL FINALIZADO\n")
         break
     # Opción de completar planteles:
     elif opcion == "1":
@@ -183,20 +183,28 @@ while True:
                 time.sleep(3)
 
                 print(f"\nCOMIENZA LA PRIMER SEMIFINAL...\n")
-                ganador = simular_partido(semifinalista_1, semifinalista_2)
-                print(f"\nEl primer finalista es {ganador}\n")
+                ganador, perdedor = simular_partido(semifinalista_1, semifinalista_2)
+                print(f"\nEL PRIMER FINALISTA ES {ganador.upper()}\n")
                 time.sleep(3)
                 finalista1 = ganador
+                tercero1 = perdedor
 
                 print(f"\nCOMIENZA LA SEGUNDA SEMIFINAL...\n")
-                ganador = simular_partido(semifinalista_3, semifinalista_4)
-                print(f"\nEl segundo finalista es {ganador}\n")
+                ganador, perdedor = simular_partido(semifinalista_3, semifinalista_4)
+                print(f"\nEL SEGUNDO FINALISTA ES {ganador.upper()}\n")
                 time.sleep(3)
                 finalista2 = ganador
+                tercero2 = perdedor
+
+                print(f"\nCOMIENZA EL PARTIDO POR EL TERCER PUESTO...\n")
+                ganador, perdedor = simular_partido(tercero1, tercero2)
+                print(f"\nAL TERCER PUESTO SE LO QUEDA {ganador.upper()}\n") 
 
                 print(f"\nCOMIENZA LA FINAL DEL MUNDIAL...\n")
-                ganador = simular_partido(finalista1, finalista2)
-                print(f"\nEl campeón del mundo es {ganador}\n")                
+                ganador, perdedor = simular_partido(finalista1, finalista2)
+                print(f"\nEL CAMPEÓN DEL MUNDO ES {ganador.upper()}\n")
+
+                print("\n-- Fin de la simulación --\n")               
 
     else:
         print("\nOPCIÓN INCORRECTA\n")
