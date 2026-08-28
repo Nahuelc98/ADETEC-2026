@@ -82,7 +82,7 @@ def simular_partido(equipo1, equipo2):
         for ronda in range(1, 6):
             # Turno del equipo que patea primero: 
             print(f"\nVa a patear el jugador de {patea_primero} y...\n")
-            time.sleep(2)           
+            time.sleep(2)          
             direccion_primero = random.choice(direcciones)
             direccion_segundo = random.choice(direcciones)
 
@@ -94,7 +94,7 @@ def simular_partido(equipo1, equipo2):
 
             # Turno del equipo que patea segundo:
             print(f"\nVa a patear el jugador de {patea_segundo} y...\n")
-            time.sleep(2)           
+            time.sleep(2)          
             direccion_primero = random.choice(direcciones)
             direccion_segundo = random.choice(direcciones)
 
@@ -105,12 +105,12 @@ def simular_partido(equipo1, equipo2):
                 print(f"ATAJO EL ARQUERO DE {patea_primero.upper()}")
 
         if penal_e1 > penal_e2:
-            ganador = equipo1 # El ganador del partido es el equipo 1.
-            perdedor = equipo2 # El equipo 2 perdio.
+            ganador = patea_primero # El ganador del partido es el equipo 1.
+            perdedor = patea_segundo # El equipo 2 perdio.
             return ganador, perdedor
         elif penal_e2 > penal_e1:
-            ganador = equipo2 # El ganador del partido es el equipo 2.
-            perdedor = equipo1 # El equipo 1 perdio.
+            ganador = patea_segundo # El ganador del partido es el equipo 2.
+            perdedor = patea_primero # El equipo 1 perdio.
             return ganador, perdedor
         else:
             print("\nIgualan en la tanda regular, vamos por los penales mata mata...")
@@ -134,21 +134,18 @@ def simular_partido(equipo1, equipo2):
                 direccion_segundo = random.choice(direcciones)               
 
                 if direccion_segundo != direccion_primero:
-                    penal_e1 += 1
+                    penal_e2 += 1
                     print(f"GOOL DE {patea_segundo.upper()}")
                 else:
                     print(f"ATAJO EL ARQUERO DE {patea_primero.upper()}")            
   
             if penal_e1 > penal_e2:
-                ganador = equipo1 # El ganador del partido es el equipo 1.
-                perdedor = equipo2 # El equipo 2 perdio.
+                ganador = patea_primero # El ganador del partido es el equipo 1.
+                perdedor = patea_segundo # El equipo 2 perdio.
                 return ganador, perdedor
             elif penal_e2 > penal_e1:
-                ganador = equipo2 # El ganador del partido es el equipo 2.
-                perdedor = equipo1 # El equipo 1 perdio.
+                ganador = patea_segundo # El ganador del partido es el equipo 2.
+                perdedor = patea_primero # El equipo 1 perdio.
                 return ganador, perdedor
-
-
-
 
 

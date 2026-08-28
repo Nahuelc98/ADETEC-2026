@@ -110,7 +110,7 @@ while True:
                 equipo.mostrar_plantel()
             # Convocar jugadores:
             elif opcion_seleccion == "2":
-                cantidad = int(input("¿Cuántos jugadores vas a convocar? "))
+                cantidad = int(input("\n¿Cuántos jugadores vas a convocar? [Ingresa 0 para cancelar] "))
                 
                 for i in range(cantidad):
                     print(f"\nJugador {i+1}:")
@@ -124,14 +124,14 @@ while True:
                 
                     datos_jugador = f"{jugador_nuevo.nombre},{jugador_nuevo.apellido},{jugador_nuevo.posicion},{jugador_nuevo.numero}\n"
                     escribir_archivo(f"plantel_{equipo.nacionalidad}.txt".lower(), datos_jugador)
-                    print(f"El jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} fue seleccionado\n")
+                    print(f"\nEl jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} fue seleccionado\n")
             # Quitar jugadores:
             elif opcion_seleccion == "3":
-                cantidad_quitar = int(input("¿Cuantos jugadores vas a quitar? "))
+                cantidad_quitar = int(input("\n¿Cuantos jugadores vas a quitar? [Ingresa 0 para cancelar] "))
 
                 for i in range(cantidad_quitar):
                     print(f"\nJugador {i+1} a quitar:")
-                    numero_eliminado = input("Ingresa el número del jugador a quitar: ").strip()
+                    numero_eliminado = input("Ingresa la dorsal del jugador a quitar: ").strip()
 
                     lineas = leer_archivo(f"plantel_{equipo.nacionalidad}.txt".lower())
                     lineas_nuevas = []
@@ -147,7 +147,7 @@ while True:
                     # Recargamos la selección en memoria desde el archivo actualizado:
                     cargar_plantel(equipo, f"plantel_{equipo.nacionalidad}.txt".lower())
 
-                    print(f"El jugador {jugador_nuevo.nombre} {jugador_nuevo.apellido} se quitó de la lista\n")
+                    print(f"\nEl jugador con la dorsal {numero_eliminado} se quitó de la lista\n")
 
             else:
                 print("\nOPCIÓN INCORRECTA\n")
@@ -202,6 +202,7 @@ while True:
 
                 print(f"\nCOMIENZA LA FINAL DEL MUNDIAL...\n")
                 ganador, perdedor = simular_partido(finalista1, finalista2)
+                print(f"\nSUBCAMPEÓN: {perdedor.upper()}")
                 print(f"\nEL CAMPEÓN DEL MUNDO ES {ganador.upper()}\n")
 
                 print("\n-- Fin de la simulación --\n")               
