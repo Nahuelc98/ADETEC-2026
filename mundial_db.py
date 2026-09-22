@@ -50,7 +50,17 @@ def mostrar_selecciones(conexion_db):
     cursor.close() 
     for seleccion in resultado:
         print(f"{seleccion[0]} ({seleccion[1]}) - DT: {seleccion[2]} | Mundiales: {seleccion[3]}")
-    return resultado
+    return resultado, seleccion[0]
+
+# Nombres de las selecciones agregadas para simular los partidos:
+def nombres_selecciones(conexion_db):
+    cursor = conexion_db.cursor()
+    cursor.execute("SELECT seleccion FROM selecciones;")
+    resultado = cursor.fetchall()
+    cursor.close()
+    lista_selecciones = [fila[0] for fila in resultado]
+    
+    return lista_selecciones
 
 # Agregar jugador:       
 def agregar_jugador(conexion_db, equipo):
@@ -93,7 +103,7 @@ def mostrar_plantel(conexion_db, equipo):
     return resultado
 
 # Conectamos localmente:
-conexion = conectar('127.0.0.1', 'root', 3306)
+#conexion = conectar('127.0.0.1', 'root', 3306)
 
 # Agregamos una selección:
 #nueva_seleccion = agregar_seleccion(conexion)
@@ -103,6 +113,10 @@ conexion = conectar('127.0.0.1', 'root', 3306)
 
 # Lista de selecciones:
 #lista_selecciones = mostrar_selecciones(conexion)
+
+# Nombre de selecciones para simular partidos:
+#nombre_selecciones = nombres_selecciones(conexion)
+#print(nombre_selecciones)
 
 # Agregamos un jugador:
 #nueva_jugador = agregar_jugador(conexion)
@@ -114,4 +128,4 @@ conexion = conectar('127.0.0.1', 'root', 3306)
 #ver_plantel = mostrar_plantel(conexion)
 
 # Cerramos la conexión total al finalizar:
-conexion.close()
+#conexion.close()

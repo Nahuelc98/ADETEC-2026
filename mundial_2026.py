@@ -1,7 +1,7 @@
 from clase_seleccion import SeleccionFutbol
 from clase_jugador import Jugador
 from simulador_partidos import simular_partido
-from mundial_db import conectar, eliminar_seleccion, mostrar_selecciones, agregar_seleccion ,agregar_jugador, sacar_jugador, mostrar_plantel
+from mundial_db import conectar, eliminar_seleccion, mostrar_selecciones, agregar_seleccion ,agregar_jugador, sacar_jugador, mostrar_plantel, nombres_selecciones
 import random
 import time
 
@@ -53,8 +53,8 @@ import time
 conexion = conectar('127.0.0.1', 'root', 3306)
 
 # Inicio del mundial:
-print("BIENVENIDO AL MUNDIAL 2026")
-print("-" * 25)
+print("\nBIENVENIDO AL MUNDIAL 2026")
+print("-" * 30)
 
 # Menú principal:
 while True:
@@ -160,7 +160,7 @@ while True:
                 break
 
             elif opcion_simular == "1":
-                selecciones_futbol = ["Argentina", "España", "Francia", "Inglaterra"]
+                selecciones_futbol = nombres_selecciones(conexion) 
 
                 # Mezclamos la lista completa de forma aleatoria:
                 random.shuffle(selecciones_futbol)

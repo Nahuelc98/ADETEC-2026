@@ -125,7 +125,7 @@ def simular_partido(equipo1, equipo2):
                     penal_e1 += 1
                     print(f"GOOL DE {patea_primero.upper()}")
                 else:
-                    print(f"ATAJO EL ARQUERO DE {patea_segundo.upper()}")                      
+                    print(f"ATAJO EL ARQUERO DE {patea_segundo.upper()}")                     
         
                 # Turno del equipo que patea segundo (mata mata):
                 print(f"\nVa a patear el jugador de {patea_segundo} y...\n")
@@ -143,9 +143,7 @@ def simular_partido(equipo1, equipo2):
                 ganador = patea_primero # El ganador del partido es el equipo 1.
                 perdedor = patea_segundo # El equipo 2 perdio.
                 return ganador, perdedor
-            elif penal_e2 > penal_e1:
+            else:
                 ganador = patea_segundo # El ganador del partido es el equipo 2.
                 perdedor = patea_primero # El equipo 1 perdio.
                 return ganador, perdedor
-
-
