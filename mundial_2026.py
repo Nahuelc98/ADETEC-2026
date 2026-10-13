@@ -249,11 +249,10 @@ def fn_ejecutar_simulacion():
     s1, s2, s3, s4 = equipos[:4]
 
     salida = []
-    salida.append("==========================================")
     salida.append("          SORTEO DE SEMIFINALES           ")
-    salida.append("==========================================")
-    salida.append(f"• Semifinal 1: {s1.upper()} vs {s2.upper()}")
-    salida.append(f"• Semifinal 2: {s3.upper()} vs {s4.upper()}\n")
+    salida.append("-" * 50)
+    salida.append(f"Semifinal 1: {s1.upper()} vs {s2.upper()}")
+    salida.append(f"Semifinal 2: {s3.upper()} vs {s4.upper()}\n")
 
     # Guardamos los métodos originales para no romper nada fuera de la simulación
     stdout_original = sys.stdout
@@ -272,9 +271,8 @@ def fn_ejecutar_simulacion():
         
         relato = buffer.getvalue().strip()
         
-        salida.append("------------------------------------------")
-        salida.append(f"▶ {titulo_partido.upper()}")
-        salida.append("------------------------------------------")
+        salida.append(f"{titulo_partido.upper()}")
+        salida.append("-" * 50)
         if relato:
             salida.append(relato)
         salida.append("")
@@ -298,13 +296,12 @@ def fn_ejecutar_simulacion():
         sys.stdout = stdout_original
 
     # Resumen del Torneo
-    salida.append("==========================================")
     salida.append("             CUADRO DE HONOR              ")
-    salida.append("==========================================")
-    salida.append(f"🏆 CAMPEÓN DEL MUNDO: {campeon.upper()}")
-    salida.append(f"🥈 SUBCAMPEÓN: {subcampeon.upper()}")
-    salida.append(f"🥉 TERCER PUESTO: {g_3ro.upper()}")
-    salida.append("==========================================")
+    salida.append("-" * 50)
+    salida.append(f"CAMPEÓN DEL MUNDO: {campeon.upper()}")
+    salida.append(f"SUBCAMPEÓN: {subcampeon.upper()}")
+    salida.append(f"TERCER PUESTO: {g_3ro.upper()}")
+    salida.append("-" * 50)
 
     return salida
 

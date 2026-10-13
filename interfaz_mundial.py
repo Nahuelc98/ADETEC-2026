@@ -3,12 +3,11 @@ import customtkinter as ctk
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("green")
 
-# Listas predefinidas para los menús desplegables
+# Listas predefinidas para los menús desplegables:
 CONFEDERACIONES_FIFA = ["CONMEBOL", "UEFA", "CONCACAF", "CAF", "AFC", "OFC"]
 POSICIONES_JUGADOR = ["Arquero", "Defensor", "Mediocampista", "Delantero"]
 
-
-# --- VENTANA 1: GESTIÓN DE SELECCIONES ---
+# VENTANA 1: GESTIÓN DE SELECCIONES
 class VentanaGestion(ctk.CTkToplevel):
     def __init__(self, parent, fn_obtener, fn_agregar, fn_eliminar):
         super().__init__(parent)
@@ -37,7 +36,7 @@ class VentanaGestion(ctk.CTkToplevel):
         self.ent_mundiales.pack(pady=3)
 
         # Botones
-        self.btn_add = ctk.CTkButton(self, text="Agregar / Actualizar Selección", command=self.agregar, width=280)
+        self.btn_add = ctk.CTkButton(self, text="Agregar Selección", command=self.agregar, width=280)
         self.btn_add.pack(pady=5)
 
         self.btn_del = ctk.CTkButton(self, text="Eliminar Selección (por nombre)", command=self.eliminar, width=280, fg_color="#D35400", hover_color="#E67E22")
@@ -63,14 +62,14 @@ class VentanaGestion(ctk.CTkToplevel):
             self.listar()
         else:
             self.txt_salida.delete("1.0", "end")
-            self.txt_salida.insert("end", "⚠ Error: Completa el nombre, DT y mundiales (número).")
+            self.txt_salida.insert("end", "Error: Completa el nombre, DT y mundiales (número).")
 
     def eliminar(self):
         nom = self.ent_nombre.get().strip().capitalize()
         if nom:
             self.fn_eliminar(nom)
             self.txt_salida.delete("1.0", "end")
-            self.txt_salida.insert("end", f"✔ Selección '{nom}' eliminada.\n")
+            self.txt_salida.insert("end", f"Selección '{nom}' eliminada.\n")
             self.listar()
 
     def listar(self):
@@ -83,7 +82,7 @@ class VentanaGestion(ctk.CTkToplevel):
             self.txt_salida.insert("end", f"• {s[0].upper()} ({s[1]}) - DT: {s[2]} | Mundiales: {s[3]}\n")
 
 
-# --- VENTANA 2: COMPLETAR PLANTELES ---
+# VENTANA 2: COMPLETAR PLANTELES
 class VentanaPlanteles(ctk.CTkToplevel):
     def __init__(self, parent, fn_nombres, fn_plantel, fn_add_j, fn_del_j):
         super().__init__(parent)
@@ -163,7 +162,7 @@ class VentanaPlanteles(ctk.CTkToplevel):
             self.txt_salida.insert("end", f"#{j[2]} - {j[0]} {j[1]} ({j[3]})\n")
 
 
-# --- VENTANA 3: SIMULACIÓN DE PARTIDOS ---
+# VENTANA 3: SIMULACIÓN DE PARTIDOS
 class VentanaSimulacion(ctk.CTkToplevel):
     def __init__(self, parent, fn_simular):
         super().__init__(parent)
