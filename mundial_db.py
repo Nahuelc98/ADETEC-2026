@@ -45,7 +45,8 @@ def pedir_conexion(ip='127.0.0.1', usuario='root', puerto=3306):
             pwd = self.entry_pass.get()
             try:
                 conexion_activa = conectar(ip, usuario, puerto, pwd)
-                self.destroy()
+                
+                self.after(100, self.destroy)
             except Exception:
                 self.lbl_error.configure(text="Contraseña incorrecta")
 
@@ -66,8 +67,14 @@ def agregar_seleccion_db(conexion_db, seleccion, confederacion, tecnico, mundial
 
 def eliminar_seleccion_db(conexion_db, seleccion):
     cursor = conexion_db.cursor()
-    sql = "DELETE FROM selecciones WHERE seleccion = %s;"
-    cursor.execute(sql, (seleccion,))
+    # 1. Primero borramos los jugadores asociados a esa selección en la tabla 'jugadores'
+    sql1 = "DELETE FROM jugadores WHERE seleccion = %s;"
+    cursor.execute(sql1, (seleccion,))
+    
+    # 2. Luego borramos la selección en la tabla 'selecciones'
+    sql2 = "DELETE FROM selecciones WHERE seleccion = %s;"
+    cursor.execute(sql2, (seleccion,))
+    
     conexion_db.commit()
     cursor.close()
 

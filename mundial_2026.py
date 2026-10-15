@@ -295,8 +295,8 @@ def fn_ejecutar_simulacion():
         time.sleep = sleep_original
         sys.stdout = stdout_original
 
-    # Resumen del Torneo
-    salida.append("             CUADRO DE HONOR              ")
+    # Resumen del Torneo:
+    salida.append("             PODIO              ")
     salida.append("-" * 50)
     salida.append(f"CAMPEÓN DEL MUNDO: {campeon.upper()}")
     salida.append(f"SUBCAMPEÓN: {subcampeon.upper()}")
