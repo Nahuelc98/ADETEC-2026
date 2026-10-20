@@ -291,12 +291,13 @@ def fn_ejecutar_simulacion():
         campeon, subcampeon = ejecutar_partido_con_relato(g1, g2, "Gran Final del Mundial")
 
     finally:
-        # Restauramos time.sleep y sys.stdout a su estado normal
+        # Restauramos time.sleep y sys.stdout a su estado normal:
         time.sleep = sleep_original
         sys.stdout = stdout_original
 
     # Resumen del Torneo:
-    salida.append("             PODIO              ")
+    salida.append("-" * 50)
+    salida.append("         --- PODIO ---          ")
     salida.append("-" * 50)
     salida.append(f"CAMPEÓN DEL MUNDO: {campeon.upper()}")
     salida.append(f"SUBCAMPEÓN: {subcampeon.upper()}")
